@@ -1,0 +1,318 @@
+"use client"
+
+import Link from "next/link"
+import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { useState } from "react"
+
+import { Button } from "@/components/ui/button"
+import { ProjectCard } from "@/components/project-card"
+import { SkillCategory } from "@/components/skill-category"
+import { ThemeToggle } from "@/components/theme-toggle"
+
+const projects = [
+  {
+    title: "DeFi Lending/Yield Protocol",
+    description: "A decentralized lending platform built on Ethereum that allows users to lend and borrow crypto assets with dynamic interest rates based on market conditions.",
+    technologies: ["Solidity", "React", "ethers.js", "The Graph", "Hardhat"],
+    liveUrl: "https://defi-lending.example.com",
+    repoUrl: "https://github.com/SolomonFoskaay/defi-lending"
+  },
+  {
+    title: "NFT Marketplace",
+    description: "A full-featured NFT marketplace supporting ERC-721 and ERC-1155 tokens with advanced filtering, bidding, and royalty distribution features.",
+    technologies: ["Next.js", "TypeScript", "Solidity", "IPFS", "OpenZeppelin"],
+    liveUrl: "https://nft-marketplace.example.com",
+    repoUrl: "https://github.com/SolomonFoskaay/nft-marketplace"
+  },
+  {
+    title: "Cross-Chain Bridge",
+    description: "A secure bridge allowing users to transfer assets between Ethereum, Polygon, and Solana with minimal fees and fast confirmation times.",
+    technologies: ["Rust", "Solidity", "React", "Web3.js", "Anchor"],
+    liveUrl: "https://bridge.example.com",
+    repoUrl: "https://github.com/SolomonFoskaay/cross-chain-bridge"
+  },
+  {
+    title: "DAO Governance Platform",
+    description: "A comprehensive DAO tooling suite with proposal creation, voting mechanisms, treasury management, and member permissions.",
+    technologies: ["Solidity", "TypeScript", "Next.js", "Ceramic", "Snapshot"],
+    liveUrl: "https://dao-platform.example.com",
+    repoUrl: "https://github.com/SolomonFoskaay/dao-platform"
+  },
+  {
+    title: "DeFi Analytics Dashboard",
+    description: "Real-time analytics dashboard tracking key metrics across multiple DeFi protocols with customizable views and alerts.",
+    technologies: ["React", "The Graph", "D3.js", "Node.js", "Express"],
+    liveUrl: "https://defi-analytics.example.com",
+    repoUrl: "https://github.com/SolomonFoskaay/defi-analytics"
+  },
+  {
+    title: "Decentralized Identity Solution",
+    description: "Self-sovereign identity system using verifiable credentials and zero-knowledge proofs for privacy-preserving authentication.",
+    technologies: ["Solidity", "ZK-SNARKs", "React", "IPFS", "Ceramic"],
+    liveUrl: "https://decentralized-identity.example.com",
+    repoUrl: "https://github.com/SolomonFoskaay/decentralized-identity"
+  }
+];
+
+export default function Home() {
+  const [showAllProjects, setShowAllProjects] = useState(false);
+
+  return (
+    <div className="flex min-h-screen flex-col">
+      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
+          <div className="flex gap-6 md:gap-10">
+            <Link href="/" className="flex items-center space-x-2">
+              <span className="inline-block font-bold">Solomon Foskaay</span>
+            </Link>
+            <nav className="hidden gap-6 md:flex">
+              <Link
+                href="#about"
+                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                About
+              </Link>
+              <Link
+                href="#skills"
+                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Skills
+              </Link>
+              <Link
+                href="#projects"
+                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Projects
+              </Link>
+              <Link
+                href="#contact"
+                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Contact
+              </Link>
+            </nav>
+          </div>
+          <div className="flex flex-1 items-center justify-end space-x-4">
+            <nav className="flex items-center space-x-1">
+              <ThemeToggle />
+              <Link href="https://github.com/SolomonFoskaay" target="_blank" rel="noreferrer">
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-foreground">
+                  <Github className="h-5 w-5" />
+                  <span className="sr-only">GitHub</span>
+                </div>
+              </Link>
+              <Link href="https://twitter.com/SolomonFoskaay" target="_blank" rel="noreferrer">
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-foreground">
+                  <Twitter className="h-5 w-5" />
+                  <span className="sr-only">Twitter</span>
+                </div>
+              </Link>
+              <Link href="https://linkedin.com/in/SolomonFoskaay" target="_blank" rel="noreferrer">
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-foreground">
+                  <Linkedin className="h-5 w-5" />
+                  <span className="sr-only">LinkedIn</span>
+                </div>
+              </Link>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main className="flex-1">
+        <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
+          <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
+            <h1 className="text-3xl font-bold leading-tight tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+              Full-Stack Web3 Developer
+            </h1>
+            <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+              Building the decentralized future with blockchain technology and modern web development
+            </p>
+            <div className="flex justify-center space-x-4">
+              <Button asChild>
+                <Link href="#projects">
+                  View Projects <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link href="#contact">Contact Me</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+        <section id="about" className="container space-y-6 bg-orange-50 py-8 dark:bg-slate-900 md:py-12 lg:py-24">
+          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+            <h2 className="text-3xl font-bold leading-tight tracking-tighter sm:text-4xl md:text-5xl">About Me</h2>
+            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+              I'm a passionate full-stack web3/Blockchain developer with 5+ years of experience building decentralized applications
+              and blockchain solutions. My journey in web3 began with Ethereum smart contract development and has since
+              expanded to include multiple blockchain ecosystems including Solana, Polkadot, and Layer 2 solutions.
+            </p>
+            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+              With a background in traditional web development and a deep understanding of blockchain technology, I
+              bridge the gap between web2 and web3, creating intuitive and powerful decentralized applications that
+              solve real-world problems.
+            </p>
+            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+              I'm constantly learning and exploring new technologies in this rapidly evolving space, and I'm passionate
+              about contributing to the growth of the decentralized web.
+            </p>
+          </div>
+        </section>
+        <section id="skills" className="container space-y-6 py-8 md:py-12 lg:py-24">
+          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+            <h2 className="text-3xl font-bold leading-tight tracking-tighter sm:text-4xl md:text-5xl">Skills</h2>
+            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+              My technical expertise spans across the entire web3 development stack
+            </p>
+          </div>
+          <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
+            <SkillCategory
+              title="Smart Contract Development"
+              skills={["Solidity", "Rust", "EVM", "Solana", "Hardhat", "Truffle", "OpenZeppelin"]}
+            />
+            <SkillCategory
+              title="Frontend Development"
+              skills={["React", "Next.js", "TypeScript", "Tailwind CSS", "Web3.js", "ethers.js", "Moralis"]}
+            />
+            <SkillCategory
+              title="Backend Development"
+              skills={["Node.js", "Express", "GraphQL", "The Graph", "IPFS", "Ceramic", "Arweave"]}
+            />
+            <SkillCategory
+              title="DeFi & NFTs"
+              skills={["Uniswap", "Aave", "Compound", "ERC-20", "ERC-721", "ERC-1155", "Metadata Standards"]}
+            />
+            <SkillCategory
+              title="DevOps & Infrastructure"
+              skills={["Docker", "CI/CD", "AWS", "Vercel", "Infura", "Alchemy", "QuickNode"]}
+            />
+            <SkillCategory
+              title="Testing & Security"
+              skills={["Mocha", "Chai", "Waffle", "Slither", "Mythril", "Echidna", "Formal Verification"]}
+            />
+          </div>
+        </section>
+        <section id="projects" className="container space-y-6 bg-orange-50 py-8 dark:bg-slate-900 md:py-12 lg:py-24">
+          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+            <h2 className="text-3xl font-bold leading-tight tracking-tighter sm:text-4xl md:text-5xl">Projects</h2>
+            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+              A selection of my recent work in the web3 space
+            </p>
+          </div>
+          <div className="mx-auto grid justify-center gap-6 sm:grid-cols-2 md:max-w-[64rem] lg:grid-cols-3">
+            {projects.slice(0, 4).map((project, index) => (
+              <ProjectCard key={index} {...project} />
+            ))}
+            {showAllProjects &&
+              projects.slice(4).map((project, index) => (
+                <ProjectCard key={index + 4} {...project} />
+              ))}
+          </div>
+          <div className="flex justify-center mt-4">
+            <Button onClick={() => setShowAllProjects(!showAllProjects)}>
+              {showAllProjects ? "Show Less" : "View All Projects"}
+            </Button>
+          </div>
+        </section>
+        <section id="contact" className="container space-y-6 py-8 md:py-12 lg:py-24">
+          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+            <h2 className="text-3xl font-bold leading-tight tracking-tighter sm:text-4xl md:text-5xl">Get in Touch</h2>
+            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+              Interested in working together? I'd love to hear from you!
+            </p>
+          </div>
+          <div className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold">Contact Information</h3>
+              <div className="flex items-center space-x-2">
+                <Mail className="h-5 w-5 text-muted-foreground" />
+                <span>hello@dprogrammingUniversity.com</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Twitter className="h-5 w-5 text-muted-foreground" />
+                <span>@SolomonFoskaay</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Github className="h-5 w-5 text-muted-foreground" />
+                <span>github.com/SolomonFoskaay</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Linkedin className="h-5 w-5 text-muted-foreground" />
+                <span>linkedin.com/in/SolomonFoskaay</span>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold">Send a Message</h3>
+              <form className="space-y-4">
+                <div className="grid gap-2">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Name
+                  </label>
+                  <input
+                    id="name"
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div className="grid gap-2">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    placeholder="Your email"
+                  />
+                </div>
+                <div className="grid gap-2">
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    placeholder="Your message"
+                  />
+                </div>
+                <Button type="submit" className="w-full">
+                  Send Message
+                </Button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer className="border-t py-6 md:py-0">
+        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+          <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
+            © 2023 Solomon Foskaay. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            <Link href="https://github.com/SolomonFoskaay" target="_blank" rel="noreferrer">
+              <Github className="h-5 w-5" />
+              <span className="sr-only">GitHub</span>
+            </Link>
+            <Link href="https://twitter.com/SolomonFoskaay" target="_blank" rel="noreferrer">
+              <Twitter className="h-5 w-5" />
+              <span className="sr-only">Twitter</span>
+            </Link>
+            <Link href="https://linkedin.com/in/SolomonFoskaay" target="_blank" rel="noreferrer">
+              <Linkedin className="h-5 w-5" />
+              <span className="sr-only">LinkedIn</span>
+            </Link>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
+
