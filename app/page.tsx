@@ -18,7 +18,7 @@ const projects = [
     repoUrl: "https://github.com/SolomonFoskaay/defi-lending"
   },
   {
-    title: "NFT Marketplace",
+    title: "NFT Marketplace (on Solana/EVM)",
     description: "A full-featured NFT marketplace supporting ERC-721 and ERC-1155 tokens with advanced filtering, bidding, and royalty distribution features.",
     technologies: ["Next.js", "TypeScript", "Solidity", "IPFS", "OpenZeppelin"],
     liveUrl: "https://nft-marketplace.example.com",
