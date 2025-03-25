@@ -13,7 +13,7 @@ Explore my journey as a full-stack Web3/Blockchain developer with over 5 years o
 
 ## Learn More
 
-For detailed information about my skills, projects, and how to get in touch, please visit my [website](https://your-website-url.com).
+For detailed information about my skills, projects, and how to get in touch, please visit my [website](https://your-website-url.com)...
 
 ## License
 
