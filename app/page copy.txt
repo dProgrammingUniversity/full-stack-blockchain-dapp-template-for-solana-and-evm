@@ -1,72 +1,61 @@
+"use client"
+
 import Link from "next/link"
 import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
+import { ProjectCard } from "@/components/project-card"
 import { SkillCategory } from "@/components/skill-category"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { createClient } from "@/utils/supabase/server"
-import { ProjectsSection } from "@/components/projects-section"
-import { ProjectFromDB, Technology, ProjectDisplay } from "@/components/types/database"
 
-
-async function getTechnologyName(id: string) {
-  const supabase = createClient()
-  const { data } = await supabase
-    .from('technology')
-    .select('name')
-    .eq('id', id)
-    .single()
-  
-  return data?.name || null
-}
-
-async function getProjects(): Promise<ProjectDisplay[]> {
-  const supabase = createClient()
-  
-  // First, get all projects
-  const { data: projects, error } = await supabase
-    .from('project')
-    .select('*')
-    .order('created_at', { ascending: false })
-
-  if (error || !projects) {
-    console.error("Error fetching projects:", error)
-    return []
+const projects = [
+  {
+    title: "DeFi Lending/Yield Protocol",
+    description: "A decentralized lending platform built on Ethereum that allows users to lend and borrow crypto assets with dynamic interest rates based on market conditions.",
+    technologies: ["Solidity", "Rust", "React", "ethers.js", "The Graph", "Hardhat"],
+    liveUrl: "https://defi-lending.example.com",
+    repoUrl: "https://github.com/SolomonFoskaay/defi-lending"
+  },
+  {
+    title: "NFT Marketplace (on Solana/EVM)",
+    description: "A full-featured NFT marketplace supporting ERC-721 and ERC-1155 tokens with advanced filtering, bidding, and royalty distribution features.",
+    technologies: ["Next.js",  "TypeScript", "Solidity", "IPFS", "OpenZeppelin"],
+    liveUrl: "https://nft-marketplace.example.com",
+    repoUrl: "https://github.com/SolomonFoskaay/nft-marketplace"
+  },
+  {
+    title: "Cross-Chain Bridge",
+    description: "A secure bridge allowing users to transfer assets between Ethereum, Polygon, and Solana with minimal fees and fast confirmation times.",
+    technologies: ["Rust", "Solidity", "React", "Web3.js", "Anchor"],
+    liveUrl: "https://bridge.example.com",
+    repoUrl: "https://github.com/SolomonFoskaay/cross-chain-bridge"
+  },
+  {
+    title: "DAO Governance Platform",
+    description: "A comprehensive DAO tooling suite with proposal creation, voting mechanisms, treasury management, and member permissions.",
+    technologies: ["Solidity", "TypeScript", "Next.js", "Ceramic", "Snapshot"],
+    liveUrl: "https://dao-platform.example.com",
+    repoUrl: "https://github.com/SolomonFoskaay/dao-platform"
+  },
+  {
+    title: "DeFi Analytics Dashboard",
+    description: "Real-time analytics dashboard tracking key metrics across multiple DeFi protocols with customizable views and alerts.",
+    technologies: ["React", "The Graph", "D3.js", "Node.js", "Express"],
+    liveUrl: "https://defi-analytics.example.com",
+    repoUrl: "https://github.com/SolomonFoskaay/defi-analytics"
+  },
+  {
+    title: "Decentralized Identity Solution",
+    description: "Self-sovereign identity system using verifiable credentials and zero-knowledge proofs for privacy-preserving authentication.",
+    technologies: ["Solidity", "ZK-SNARKs", "React", "IPFS", "Ceramic"],
+    liveUrl: "https://decentralized-identity.example.com",
+    repoUrl: "https://github.com/SolomonFoskaay/decentralized-identity"
   }
+];
 
-  // Then, for each project, get the technology names
-  const formattedProjects = await Promise.all(projects.map(async (project: ProjectFromDB) => {
-    const techIds = [
-      project.tech_1,
-      project.tech_2,
-      project.tech_3,
-      project.tech_4,
-      project.tech_5,
-      project.tech_6,
-      project.tech_7,
-      project.tech_8,
-      project.tech_9,
-      project.tech_10
-    ].filter((id): id is string => Boolean(id))
-
-    const techNames = await Promise.all(
-      techIds.map(id => getTechnologyName(id))
-    )
-
-    return {
-      title: project.title,
-      description: project.description,
-      technologies: techNames.filter((name): name is string => Boolean(name)),
-      liveUrl: project.live_url,
-      repoUrl: project.repo_url
-    }
-  }))
-
-  return formattedProjects
-}
-
-export default async function Home() {
-  const projects = await getProjects()
+export default function Home() {
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -202,8 +191,27 @@ export default async function Home() {
             />
           </div>
         </section>
-        <section id="projects" className="container space-y-6 bg-orange-50 py-8 dark:bg-slate-900 md:py-12 lg:py-24">          
-          <ProjectsSection projects={projects} />
+        <section id="projects" className="container space-y-6 bg-orange-50 py-8 dark:bg-slate-900 md:py-12 lg:py-24">
+          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+            <h2 className="text-3xl font-bold leading-tight tracking-tighter sm:text-4xl md:text-5xl">Projects</h2>
+            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+              A selection of my recent work in the web3 space
+            </p>
+          </div>
+          <div className="mx-auto grid justify-center gap-6 sm:grid-cols-2 md:max-w-[64rem] lg:grid-cols-3">
+            {projects.slice(0, 4).map((project, index) => (
+              <ProjectCard key={index} {...project} />
+            ))}
+            {showAllProjects &&
+              projects.slice(4).map((project, index) => (
+                <ProjectCard key={index + 4} {...project} />
+              ))}
+          </div>
+          <div className="flex justify-center mt-4">
+            <Button onClick={() => setShowAllProjects(!showAllProjects)}>
+              {showAllProjects ? "Show Less" : "View All Projects"}
+            </Button>
+          </div>
         </section>
         <section id="contact" className="container space-y-6 py-8 md:py-12 lg:py-24">
           <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
