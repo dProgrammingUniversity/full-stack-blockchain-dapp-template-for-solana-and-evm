@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/navigation/header"
 import Footer from "@/components/navigation/footer"
+import { ClientWalletProvider } from "@/providers/solana/ClientWalletProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,9 +23,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
-          <Header />
-          {children}
-          <Footer />
+          <ClientWalletProvider>
+            <Header />
+            {children}
+            <Footer />
+          </ClientWalletProvider>
         </ThemeProvider>
       </body>
     </html>

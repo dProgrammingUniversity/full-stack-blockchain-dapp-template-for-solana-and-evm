@@ -6,6 +6,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { useEffect, useState } from "react"
 import { createClient } from "@/utils/supabase/client"
 import { Button } from "@/components/ui/button"
+import { SolanaWalletsButton } from "@/components/blockchain/solana/SolanaWalletsButton"
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -75,6 +76,10 @@ export default function Header() {
                 <span className="sr-only">LinkedIn</span>
               </div>
             </Link>
+
+            {/* Solana wallet multibutton */}
+            <SolanaWalletsButton />
+
             {isLoggedIn ? (
               <div className="flex items-center space-x-2">
                 <span className="text-sm font-medium">Hi {userEmail?.slice(0, 4)}...</span>

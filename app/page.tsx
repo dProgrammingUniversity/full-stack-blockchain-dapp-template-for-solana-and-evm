@@ -6,6 +6,7 @@ import { SkillCategory } from "@/components/skill-category"
 import { createClient } from "@/utils/supabase/server"
 import { ProjectsSection } from "@/components/projects-section"
 import { ProjectFromDB, Technology, ProjectDisplay } from "@/components/types/database"
+import { HelloWeb3World } from "@/components/blockchain/solana/HelloWeb3World"
 
 
 async function getTechnologyName(id: string) {
@@ -15,13 +16,13 @@ async function getTechnologyName(id: string) {
     .select('name')
     .eq('id', id)
     .single()
-  
+
   return data?.name || null
 }
 
 async function getProjects(): Promise<ProjectDisplay[]> {
   const supabase = createClient()
-  
+
   // First, get all projects
   const { data: projects, error } = await supabase
     .from('project')
@@ -69,7 +70,7 @@ export default async function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
-     
+
       <main className="flex-1">
         <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
           <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
@@ -144,9 +145,23 @@ export default async function Home() {
             />
           </div>
         </section>
-        <section id="projects" className="container space-y-6 bg-orange-50 py-8 dark:bg-slate-900 md:py-12 lg:py-24">          
+        <section id="projects" className="container space-y-6 bg-orange-50 py-8 dark:bg-slate-900 md:py-12 lg:py-24">
           <ProjectsSection projects={projects} />
         </section>
+
+        {/* Blockchain Section */}
+        <section id="blockchains" className="container space-y-6 bg-orange-50 py-8 dark:bg-slate-900 md:py-12 lg:py-24">
+          <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+            <h2 className="text-3xl font-bold leading-tight tracking-tighter sm:text-4xl md:text-5xl">
+              On-chain Integration Demo
+            </h2>
+            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+              Experience live blockchain interaction with my deployed smart contracts
+            </p>
+            <HelloWeb3World />
+          </div>
+        </section>
+
         <section id="contact" className="container space-y-6 py-8 md:py-12 lg:py-24">
           <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
             <h2 className="text-3xl font-bold leading-tight tracking-tighter sm:text-4xl md:text-5xl">Get in Touch</h2>
