@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/navigation/header"
 import Footer from "@/components/navigation/footer"
 import { ClientWalletProvider } from "@/providers/solana/ClientWalletProvider"
+import { EthereumProvider } from "@/providers/ethereum/EthereumProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,9 +25,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           <ClientWalletProvider>
+            <EthereumProvider>
             <Header />
             {children}
             <Footer />
+          </EthereumProvider>
           </ClientWalletProvider>
         </ThemeProvider>
       </body>

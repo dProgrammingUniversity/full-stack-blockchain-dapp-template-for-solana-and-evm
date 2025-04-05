@@ -7,6 +7,7 @@ import { createClient } from "@/utils/supabase/server"
 import { ProjectsSection } from "@/components/projects-section"
 import { ProjectFromDB, Technology, ProjectDisplay } from "@/components/types/database"
 import { HelloWeb3World } from "@/components/blockchain/solana/HelloWeb3World"
+import { HelloWeb3WorldEth } from "@/components/blockchain/ethereum/HelloWeb3WorldEth"
 
 
 async function getTechnologyName(id: string) {
@@ -159,6 +160,7 @@ export default async function Home() {
               Experience live blockchain interaction with my deployed smart contracts
             </p>
             <HelloWeb3World />
+            <HelloWeb3WorldEth />
           </div>
         </section>
 
