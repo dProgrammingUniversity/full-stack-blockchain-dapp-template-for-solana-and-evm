@@ -1,14 +1,9 @@
-// /app/auth/signup/page.tsx
-import Login from "@/components/auth/Login";
-import SignUp from "@/components/auth/Signup";
+import Signup from "@/components/auth/Signup"
 
-
-const SignUpPage = ({ searchParams }: { searchParams: { message: string } }) => {
+export default function SignupPage() {
   return (
-    <>
-    <SignUp searchParams={searchParams} />
-    </>
-  );
-};
-
-export default SignUpPage;
+    <div className="flex min-h-screen items-center justify-center">
+      <Signup />
+    </div>
+  )
+}

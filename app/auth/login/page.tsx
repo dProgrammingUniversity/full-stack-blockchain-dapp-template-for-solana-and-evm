@@ -1,12 +1,9 @@
-// /app/auth/login/page.tsx
-import Login from "@/components/auth/Login";
+import Login from '@/components/auth/Login'
 
-const LoginPage = ({ searchParams }: { searchParams: { message: string } }) => {
+export default function LoginPage() {
   return (
-    <>
-    <Login searchParams={searchParams} />
-    </>
-  );
-};
-
-export default LoginPage;
+    <div className="flex min-h-screen items-center justify-center">
+      <Login />
+    </div>
+  )
+}

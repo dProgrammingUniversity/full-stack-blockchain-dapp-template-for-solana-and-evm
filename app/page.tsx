@@ -70,64 +70,7 @@ export default async function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-          <div className="flex gap-6 md:gap-10">
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="inline-block font-bold">Solomon Foskaay</span>
-            </Link>
-            <nav className="hidden gap-6 md:flex">
-              <Link
-                href="#about"
-                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                About
-              </Link>
-              <Link
-                href="#skills"
-                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                Skills
-              </Link>
-              <Link
-                href="#projects"
-                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                Projects
-              </Link>
-              <Link
-                href="#contact"
-                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                Contact
-              </Link>
-            </nav>
-          </div>
-          <div className="flex flex-1 items-center justify-end space-x-4">
-            <nav className="flex items-center space-x-1">
-              <ThemeToggle />
-              <Link href="https://github.com/SolomonFoskaay" target="_blank" rel="noreferrer">
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-foreground">
-                  <Github className="h-5 w-5" />
-                  <span className="sr-only">GitHub</span>
-                </div>
-              </Link>
-              <Link href="https://twitter.com/SolomonFoskaay" target="_blank" rel="noreferrer">
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-foreground">
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
-                </div>
-              </Link>
-              <Link href="https://linkedin.com/in/SolomonFoskaay" target="_blank" rel="noreferrer">
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-foreground">
-                  <Linkedin className="h-5 w-5" />
-                  <span className="sr-only">LinkedIn</span>
-                </div>
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+     
       <main className="flex-1">
         <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
           <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
@@ -283,27 +226,6 @@ export default async function Home() {
           </div>
         </section>
       </main>
-      <footer className="border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-          <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            © 2023 Solomon Foskaay. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4">
-            <Link href="https://github.com/SolomonFoskaay" target="_blank" rel="noreferrer">
-              <Github className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
-            </Link>
-            <Link href="https://twitter.com/SolomonFoskaay" target="_blank" rel="noreferrer">
-              <Twitter className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link href="https://linkedin.com/in/SolomonFoskaay" target="_blank" rel="noreferrer">
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
-            </Link>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
