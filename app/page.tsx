@@ -3,7 +3,6 @@ import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { SkillCategory } from "@/components/skill-category"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { createClient } from "@/utils/supabase/server"
 import { ProjectsSection } from "@/components/projects-section"
 import { ProjectFromDB, Technology, ProjectDisplay } from "@/components/types/database"
