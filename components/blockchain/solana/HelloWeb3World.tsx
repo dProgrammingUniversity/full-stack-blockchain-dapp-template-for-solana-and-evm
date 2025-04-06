@@ -8,8 +8,8 @@ import { SolanaWalletsButton } from './SolanaWalletsButton';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { HelloWeb3World as HelloWeb3WorldType } from '@/blockchain/solana/hello_web3_world/target/types/hello_web3_world';
-import idl from '@/blockchain/solana/hello_web3_world/target/idl/hello_web3_world.json';
+import { HelloWeb3World as HelloWeb3WorldType } from '@/components/blockchain/solana/types/hello_web3_world';
+import idl from '@/components/blockchain/solana/idl/hello_web3_world.json';
 
 export const HelloWeb3World: FC = () => {
   const { connection } = useConnection();

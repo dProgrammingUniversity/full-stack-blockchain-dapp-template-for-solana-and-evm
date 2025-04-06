@@ -1,0 +1,89 @@
+{
+  "address": "B3bja5VkrceMnN5b6wQZy3CKKB8eE58XGVnwMKRHMnYe",
+  "metadata": {
+    "name": "hello_web3_world",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "get_message",
+      "discriminator": [
+        159,
+        69,
+        186,
+        171,
+        244,
+        131,
+        99,
+        223
+      ],
+      "accounts": [
+        {
+          "name": "message"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "message",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "MessageAccount",
+      "discriminator": [
+        97,
+        144,
+        24,
+        58,
+        225,
+        40,
+        89,
+        223
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "MessageAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "content",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}
