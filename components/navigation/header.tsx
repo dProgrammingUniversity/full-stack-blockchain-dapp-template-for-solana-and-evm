@@ -35,7 +35,7 @@ export default function Header() {
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div className="flex gap-6 md:gap-10">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="inline-block font-bold">Solomon Foskaay</span>
+            <span className="inline-block font-bold">dPU dApp Template</span>
           </Link>
           <nav className="hidden gap-6 md:flex">
             <Link href="#about" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
@@ -58,19 +58,19 @@ export default function Header() {
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
             <ThemeToggle />
-            <Link href="https://github.com/SolomonFoskaay" target="_blank" rel="noreferrer">
+            <Link href="https://github.com/sample" target="_blank" rel="noreferrer">
               <div className="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-foreground">
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
-            <Link href="https://twitter.com/SolomonFoskaay" target="_blank" rel="noreferrer">
+            <Link href="https://twitter.com/Sample" target="_blank" rel="noreferrer">
               <div className="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-foreground">
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>
-            <Link href="https://linkedin.com/in/SolomonFoskaay" target="_blank" rel="noreferrer">
+            <Link href="https://linkedin.com/in/Sample" target="_blank" rel="noreferrer">
               <div className="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-foreground">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
