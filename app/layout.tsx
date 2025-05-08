@@ -10,8 +10,8 @@ import { EthereumProvider } from "@/providers/ethereum/EthereumProvider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Solomon Foskaay - Web3 Developer Portfolio",
-  description: "Full-stack web3 developer specializing in blockchain technology and decentralized applications",
+  title: "dPU dApp Template - For Solana and EVM Full Stack Developer",
+  description: "Full-stack dPU dApp Template - For Solana and EVM Full Stack Developer",
   generator: 'v0.dev'
 }
 

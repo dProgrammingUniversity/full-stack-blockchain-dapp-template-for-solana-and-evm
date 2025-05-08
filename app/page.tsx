@@ -176,19 +176,19 @@ export default async function Home() {
               <h3 className="text-xl font-bold">Contact Information</h3>
               <div className="flex items-center space-x-2">
                 <Mail className="h-5 w-5 text-muted-foreground" />
-                <span>hello@dprogrammingUniversity.com</span>
+                <span>emailhere</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Twitter className="h-5 w-5 text-muted-foreground" />
-                <span>@SolomonFoskaay</span>
+                <span>yourxaccount</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Github className="h-5 w-5 text-muted-foreground" />
-                <span>github.com/SolomonFoskaay</span>
+                <span>github.com/yourgithubusernamehere</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Linkedin className="h-5 w-5 text-muted-foreground" />
-                <span>linkedin.com/in/SolomonFoskaay</span>
+                <span>linkedin.com/in/yourusernamehere</span>
               </div>
             </div>
             <div className="space-y-4">
