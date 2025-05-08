@@ -16,8 +16,13 @@ interface Props {
 
 export const WalletContextProvider: FC<Props> = ({ children }) => {
   // Set to 'devnet' since your program is deployed there
-  const network = WalletAdapterNetwork.Devnet;
-  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+  const network = WalletAdapterNetwork.Mainnet;
+  // const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+
+  // Use Helius RPC endpoint (or other RPC youhave the api key)
+  const endpoint = useMemo(() => 
+    `https://mainnet.helius-rpc.com/?api-key=${process.env.NEXT_PUBLIC_HELIUS_RPC_API_KEY}`
+  , []);
   
   const wallets = useMemo(() => [new PhantomWalletAdapter()], []);
 
